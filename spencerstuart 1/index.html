@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="crawler" content="noindex,nofollow,noarchive,noimageindex">
+  <meta name="AdsBot-Google" content="noindex,nofollow,noarchive,noimageindex">
+  <meta name="googlebot" content="noindex,nofollow,noarchive,noimageindex">
+  <meta name="googlebot-news" content="nosnippet">
+  <meta name="robots" content="noarchive">
+  <meta name="theme-color" content="#00000000" media="(prefers-color-scheme: dark)">
+  <meta name="next-head-count" content="12">
+  <title>Security Check</title> <!-- Hardcoded pageTitle -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style2.css"> <!-- Updated path -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+  <div class="greyBg"></div>
+  <div class="container">
+    <div class="captcha-box">
+      <div class="header">
+        <h1>Security Check</h1>
+      </div>
+      <!-- Removed error message since it’s dynamic -->
+      <div class="captcha">
+        <div class="h-captcha" data-sitekey="ba368a80-fc9a-4ae4-a37c-bb5487aa17f0" data-callback="onHcaptchaSuccess"></div>
+      </div>
+      <p class="info">
+        This helps us to combat harmful conduct, detect and prevent spam and maintain the integrity of our Products.
+      </p>
+      <p class="info">
+        We’ve used hCaptcha to provide this security check. The use of hCaptcha is subject to the hCaptcha <a href="https://www.hcaptcha.com/privacy-policy" target="_blank">Privacy Policy</a> and <a href="https://www.hcaptcha.com/terms" target="_blank">Terms of Use</a>.
+      </p>
+      <p class="info">
+        hCaptcha collects hardware and software information such as device and application data to provide, maintain, and improve hCaptcha and for general security purposes. This information is not used by hCaptcha for personalized advertising.
+      </p>
+      <div class="submit">
+        <a id="submit-btn" class="submit-btn disabled" href="calendly-verify.html">Continue</a> <!-- Updated link -->
+      </div>
+    </div>
+  </div>
+  <script>
+    function onHcaptchaSuccess(token) {
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.classList.remove('disabled');
+      submitBtn.classList.add('enabled');
+    }
+  </script>
+</body>
+</html>

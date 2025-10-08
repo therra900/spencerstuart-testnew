@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    background-color: #f1f2f7; /* Grey background */
+    min-height: 100vh;
+  }
+  .greyBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1f2f7;
+    z-index: -1;
+  }
+  .container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  .captcha-box {
+    background: white;
+    border: 1px solid #d3d3d3; /* Visible border matching the image */
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-sizing: border-box;
+  }
+  .header {
+    margin-bottom: 15px;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    color: #4a4a4a;
+    text-align: left;
+    margin: 0;
+  }
+  .captcha {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 15px 0;
+  }
+  .info {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+    color: #4a4a4a;
+    line-height: 1.5;
+  }
+  .info a {
+    color: #0064e0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .info a:hover {
+    text-decoration: underline;
+  }
+  .submit {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .submit-btn {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 11px 14px;
+    width: 100%;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  .submit-btn.disabled {
+    background-color: #cccccc;
+    color: white;
+    cursor: not-allowed;
+    pointer-events: none; /* Prevents clicking when disabled */
+  }
+  .submit-btn.enabled {
+    background-color: #0064e0; /* Blue button */
+    color: white;
+    cursor: pointer;
+  }
+  .submit-btn.enabled:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+  }
+  .error {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+    .captcha-box {
+      max-width: 100%;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    .info {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .captcha {
+      margin: 10px 0;
+    }
+    .submit {
+      margin-top: 15px;
+    }
+    .submit-btn {
+      font-size: 12px;
+      padding: 10px 12px;
+    }
+  }
